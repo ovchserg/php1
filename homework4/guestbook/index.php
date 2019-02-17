@@ -2,7 +2,7 @@
 
 include __DIR__ . '/functions.php';
 
-$posts = getPosts( __DIR__ . '/data.txt' );
+$posts = getPosts();
 
 ?>
 <!doctype html>

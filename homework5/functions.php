@@ -45,12 +45,12 @@ function getImages($dirname)
     return array_diff( scandir( $dirname, SCANDIR_SORT_NONE ), ['.', '..'] );
 }
 
-function uploadImage($file)
+function uploadImage()
 {
-    if (0 == $file['error']) {
-        if ( in_array( $file['type'], ['image/png', 'image/jpeg'] ) ) {
-            if ( move_uploaded_file( $file['tmp_name'], __DIR__ . '/images/' . $file['name'] )) {
-                setLog($file['name']); // запись в лог
+    if (0 == $_FILES['img']['error']) {
+        if ( in_array( $_FILES['img']['type'], ['image/png', 'image/jpeg'] ) ) {
+            if ( move_uploaded_file( $_FILES['img']['tmp_name'], __DIR__ . '/images/' . $_FILES['img']['name'] )) {
+                setLog($_FILES['img']['name']); // запись в лог
                 return true;
             }
             return false;

@@ -1,16 +1,16 @@
 <?php
 
-include __DIR__ . '/functions.php';
+include __DIR__ . '/../functions.php';
 
 $operators = ['+', '-', '*', '/'];
 
 if( isset($_POST['a']) ){
-    $a = (int) $_POST['a'];
+    $a = $_POST['a'];
 } else {
     $a = null;
 }
 if( isset($_POST['b']) ){
-    $b = (int) $_POST['b'];
+    $b = $_POST['b'];
 } else {
     $b = null;
 }
@@ -34,13 +34,13 @@ $result = calculate($a, $b, $operator);
 </head>
 <body>
 <form action="/homework3/calc2/index.php" method="post">
-    <input type="number" name="a" value="<?php echo $a; ?>">
+    <input type="text" name="a" value="<?php echo $a; ?>">
     <select name="operator">
         <?php foreach ($operators as $op){ ?>
-            <option value="<?php echo $op; ?>" <?php if($op == $operator) echo 'selected'; ?>><?php echo $op; ?></option>
+            <option value="<?php echo $op; ?>" <?php if($op == $operator) { echo 'selected'; } ?>><?php echo $op; ?></option>
         <?php } ?>
     </select>
-    <input type="number" name="b" value="<?php echo $b; ?>">
+    <input type="text" name="b" value="<?php echo $b; ?>">
     <button type="submit">=</button>
     <?php echo $result; ?>
 </form>

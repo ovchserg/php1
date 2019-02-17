@@ -1,7 +1,7 @@
 <?php
 
-function getPosts( $filename ) {
+function getPosts() {
 
-    return file( $filename, FILE_IGNORE_NEW_LINES );
+    return file( __DIR__ . '/data.txt' , FILE_IGNORE_NEW_LINES );
 
 }

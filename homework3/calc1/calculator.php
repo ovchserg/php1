@@ -1,8 +1,8 @@
 <?php
 
-include __DIR__ . '/functions.php';
+include __DIR__ . '/../functions.php';
 
-$result = calculate( (int) $_GET['a'], (int) $_GET['b'], $_GET['operator']);
+$result = calculate( $_GET['a'], $_GET['b'], $_GET['operator']);
 
 echo $result;
 

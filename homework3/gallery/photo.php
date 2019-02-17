@@ -1,6 +1,6 @@
 <?php
 
-include __DIR__ . '/images.php';
+$images = include __DIR__ . '/images.php';
 
 if(isset($_GET['id'])){
     $id = (int)$_GET['id'];

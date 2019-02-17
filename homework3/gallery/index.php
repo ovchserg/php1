@@ -1,6 +1,6 @@
 <?php
 
-include __DIR__ . '/images.php';
+$images = include __DIR__ . '/images.php';
 
 ?>
 <!doctype html>

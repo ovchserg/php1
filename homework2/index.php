@@ -28,29 +28,29 @@
         <td>xor</td>
     </tr>
     <tr>
-        <td><?php echo $a = 0; ?></td>
-        <td><?php echo $b = 0; ?></td>
+        <td><?php echo (int) $a = false; ?></td>
+        <td><?php echo (int) $b = false; ?></td>
         <td><?php echo (int) ($a && $b); ?></td>
         <td><?php echo (int) ($a || $b); ?></td>
         <td><?php echo (int) ($a xor $b); ?></td>
     </tr>
     <tr>
-        <td><?php echo $a = 1; ?></td>
-        <td><?php echo $b = 0; ?></td>
+        <td><?php echo (int) $a = true; ?></td>
+        <td><?php echo (int) $b = false; ?></td>
         <td><?php echo (int) ($a && $b); ?></td>
         <td><?php echo (int) ($a || $b); ?></td>
         <td><?php echo (int) ($a xor $b); ?></td>
     </tr>
     <tr>
-        <td><?php echo $a = 0; ?></td>
-        <td><?php echo $b = 1; ?></td>
+        <td><?php echo (int) $a = false; ?></td>
+        <td><?php echo (int) $b = true; ?></td>
         <td><?php echo (int) ($a && $b); ?></td>
         <td><?php echo (int) ($a || $b); ?></td>
         <td><?php echo (int) ($a xor $b); ?></td>
     </tr>
     <tr>
-        <td><?php echo $a = 1; ?></td>
-        <td><?php echo $b = 1; ?></td>
+        <td><?php echo (int) $a = true; ?></td>
+        <td><?php echo (int) $b = true; ?></td>
         <td><?php echo (int) ($a && $b); ?></td>
         <td><?php echo (int) ($a || $b); ?></td>
         <td><?php echo (int) ($a xor $b); ?></td>
@@ -73,7 +73,7 @@ $c = -5;
 $d = calcD($a, $b, $c);
 
 ?>
-<h3><?php if($a != 1) echo $a; ?>x<sup>2</sup> - <?php echo $b; ?>x + <?php echo $c; ?> = 0</h3>
+<h3><?php if($a != 1) { echo $a; } ?>x<sup>2</sup> - <?php echo $b; ?>x + <?php echo $c; ?> = 0</h3>
 <p>a = <?php echo $a; ?>, b = <?php echo $b; ?>, c = <?php echo $c; ?></p>
 <p>D = <?php echo $b; ?><sup>2</sup> - 4 * <?php echo $a; ?> * <?php echo $c; ?> = <?php echo $d; ?></p>
 <p>
@@ -98,10 +98,10 @@ $d = calcD($a, $b, $c);
 
 // 3. То, что возвращает подключаемый файл, если исполнение включаемого файл заканчивается return
 // успешное включение файла возвращает int(1)
-var_dump( include ('include.php') ); // год 2019 int(1)
-var_dump( include ('include1.php') ); // string(12) "строка"
-var_dump( include ('include2.php') ); // int(2019)
-var_dump( include ('include3.php') ); // bool(true)
+var_dump( include (__DIR__ . '/include.php') ); // год 2019 int(1)
+var_dump( include (__DIR__ . '/include1.php') ); // string(12) "строка"
+var_dump( include (__DIR__ . '/include2.php') ); // int(2019)
+var_dump( include (__DIR__ . '/include3.php') ); // bool(true)
 ?>
 
 <h2>4. Функция определения пола по имени</h2>

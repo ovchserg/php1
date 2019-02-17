@@ -9,14 +9,14 @@
 </head>
 <body>
 <form action="/homework3/calc1/calculator.php" method="get">
-    <input type="number" name="a">
+    <input type="text" name="a">
     <select name="operator">
         <option value="+">+</option>
         <option value="=">-</option>
         <option value="*">*</option>
         <option value="/">/</option>
     </select>
-    <input type="number" name="b">
+    <input type="text" name="b">
     <button type="submit">=</button>
 </form>
 </body>
