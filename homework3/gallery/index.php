@@ -21,7 +21,7 @@ $images = include __DIR__ . '/images.php';
     <h1>Фотогалерея</h1>
     <?php foreach ($images as $key => $image) { ?>
         <div class="image">
-            <a href="/homework3/gallery/photo.php?id=<?php echo $key; ?>">
+            <a href="/homework3/gallery/image.php?id=<?php echo $key; ?>">
                 <img src="/homework3/gallery/images/<?php echo $image; ?>">
             </a>
         </div>
