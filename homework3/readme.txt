@@ -6,4 +6,4 @@
 /homework3/gallery/images/ - файлы с картинками
 /homework3/gallery/images.php - подключаемый файл, содержащий массив картинок
 /homework3/gallery/index.php - главная страница галереи
-/homework3/gallery/photo.php - выводит определенную картинку по его id (ключу массива)
+/homework3/gallery/image.php - выводит определенную картинку по его id (ключу массива)
