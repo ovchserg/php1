@@ -4,10 +4,6 @@ include __DIR__ . '/functions.php';
 
 session_start();
 
-if ( isset($_GET['logout']) ){
-    logout();
-}
-
 if (
     isset($_POST['login'], $_POST['password'])
     &&
@@ -17,8 +13,9 @@ if (
     $_SESSION['username'] = $_POST['login'];
 }
 
-if ( getCurrentUser() ){
+if ( null !== getCurrentUser() ){
     header( 'Location: /homework5/index.php' );
+    exit;
 }
 else { ?>
     <form  action="/homework5/login.php" method="post">

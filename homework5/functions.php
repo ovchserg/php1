@@ -14,8 +14,10 @@ function existsUser($login)
 {
     $users = getUsersList();
 
-    if(isset($users[$login])){
+    if (isset($users[$login])){
         return true;
+    } else {
+        return false;
     }
 }
 
@@ -23,24 +25,28 @@ function checkPassword($login, $password)
 {
     $users = getUsersList();
 
-    if(
-        isset($users[$login])
+    if (
+        existsUser($login)
         &&
-        $password == password_verify($password, $users[$login])
+        password_verify($password, $users[$login])
     )
     {
         return true;
+    } else {
+        return false;
     }
 }
 
 function getCurrentUser()
 {
-    if(isset($_SESSION['username'])){
-        return true;
+    if (isset($_SESSION['username']) && existsUser($_SESSION['username'])){
+        return $_SESSION['username'];
+    } else {
+        return null;
     }
 }
 
-function getImages($dirname)
+function getFiles($dirname)
 {
     return array_diff( scandir( $dirname, SCANDIR_SORT_NONE ), ['.', '..'] );
 }
@@ -63,9 +69,4 @@ function setLog($filename)
 {
     $str = date('Y-m-d H:i:s') . '  ' . $_SESSION['username'] . '   ' . $filename . "\n";
     file_put_contents(__DIR__ . '/log.txt', $str, FILE_APPEND);
-}
-
-function logout()
-{
-    session_destroy();
 }

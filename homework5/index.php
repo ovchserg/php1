@@ -5,7 +5,7 @@ include __DIR__ . '/functions.php';
 session_start();
 
 $dirname = __DIR__ . '/images';
-$images = getImages( $dirname );
+$images = getFiles( $dirname );
 
 ?>
 <!doctype html>
@@ -38,7 +38,7 @@ $images = getImages( $dirname );
     <?php if ( getCurrentUser() ){ ?>
 
     <div>
-        Привет, <?php echo $_SESSION['username']; ?>! <a href="/homework5/login.php?logout">Выйти</a>
+        Привет, <?php echo $_SESSION['username']; ?>!
     </div>
 
     <h2>Загрузить изображение</h2>
