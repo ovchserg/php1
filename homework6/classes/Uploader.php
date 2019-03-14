@@ -14,7 +14,7 @@ class Uploader
 
     public function isUploaded()
     {
-        if(
+        if (
             isset( $_FILES[$this->fieldname] )
             &&
             0 == $_FILES[$this->fieldname]['error']
@@ -27,24 +27,19 @@ class Uploader
 
     public function upload()
     {
-        if(
-            $this->isUploaded()
-            &&
-            move_uploaded_file
-            (
-                $_FILES[$this->fieldname]['tmp_name'],
-                dirname(__DIR__) . '/gallery/images/' . $_FILES[$this->fieldname]['name']
-            )
-        )
-        {
-            $filename = $_FILES[$this->fieldname]['name'];
+        if (true === $this->isUploaded()) {
 
-            $log = new Log;
-            $log->setLog( ' UploadImage  ' . $filename );
+            $result = move_uploaded_file($_FILES[$this->fieldname]['tmp_name'], dirname(__DIR__) . '/gallery/images/' . $_FILES[$this->fieldname]['name']);
 
-            return $filename; // возвращает имя загруженного файла
+            if (false !== $result){
+                $filename = $_FILES[$this->fieldname]['name'];
+
+                $log = new Log;
+                $log->setLog( ' UploadImage  ' . $filename );
+
+                return $filename; // возвращает имя загруженного файла
+            }
         }
-
     }
 
 
